@@ -17,7 +17,6 @@ package com.example.androiddevchallenge.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,11 +35,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.models.AppointmentViewModel
 import com.example.androiddevchallenge.models.generateAppointment
-import kotlin.math.min
 
 @Composable
 fun Appointment(appointmentViewModel: AppointmentViewModel, modifier: Modifier = Modifier) {
