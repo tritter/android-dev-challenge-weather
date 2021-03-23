@@ -16,6 +16,7 @@ I always wanted to create a weather App which displays both informations at the 
 
 ## :camera_flash: Screenshots
 <img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">
+<br>
 <img src="/results/screenshot_1b.png" width="260">&emsp;<img src="/results/screenshot_2b.png" width="260">
 ## License
 ```
