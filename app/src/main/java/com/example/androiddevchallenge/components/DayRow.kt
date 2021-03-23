@@ -1,11 +1,26 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.components
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,14 +51,16 @@ fun DayRow(viewModel: DayRowViewModel) {
                 Box {
                     viewModel.appointments.forEach { appointment ->
                         val offset = oneMinuteHeight * viewModel.minutesOffset(appointment).toFloat()
-                        Appointment(appointment,
+                        Appointment(
+                            appointment,
                             Modifier
                                 .zIndex(0.5f)
                                 .width(dimensionResource(R.dimen.appointment_width))
                                 .offset(
                                     dimensionResource(R.dimen.appointment_start_offset),
                                     offset
-                                ))
+                                )
+                        )
                     }
                 }
                 if (viewModel.isToday) {
@@ -56,8 +73,7 @@ fun DayRow(viewModel: DayRowViewModel) {
 
 @Preview("Day row preview", widthDp = 350, heightDp = 50)
 @Composable
-fun DayRowPreview()
-{
+fun DayRowPreview() {
     val viewModel = DayRowViewModel(Day(Date(), generateWeather(), emptyList()), emptyList())
     DayRow(viewModel)
 }

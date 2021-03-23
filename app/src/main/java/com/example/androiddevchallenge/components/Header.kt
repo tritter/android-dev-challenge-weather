@@ -1,12 +1,27 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.components
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -25,8 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
 
 @Composable
-fun Header(location: String)
-{
+fun Header(location: String) {
     val cd = stringResource(id = R.string.cd_location, location)
     Surface(elevation = dimensionResource(R.dimen.header_elevation), modifier = Modifier.padding(0.dp, 0.dp, 0.dp, dimensionResource(R.dimen.divider))) {
         Row(
@@ -36,9 +50,9 @@ fun Header(location: String)
                 }
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.margin)),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center)
-        {
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
             Icon(
                 Icons.Default.GpsFixed,
                 tint = MaterialTheme.colors.primary,
@@ -48,22 +62,24 @@ fun Header(location: String)
                     .padding(dimensionResource(R.dimen.margin))
                     .wrapContentWidth(Alignment.CenterHorizontally)
             )
-            Text(location, style = MaterialTheme.typography.h6,
+            Text(
+                location, style = MaterialTheme.typography.h6,
                 modifier = Modifier
                     .weight(1f, false)
-                    .wrapContentWidth(Alignment.CenterHorizontally))
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+            )
             Spacer(
                 Modifier
                     .width(dimensionResource(R.dimen.margin))
                     .weight(1f, false)
-                    .wrapContentWidth(Alignment.CenterHorizontally))
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+            )
         }
     }
 }
 
 @Preview("Day row preview", widthDp = 350, heightDp = 50)
 @Composable
-fun HeaderPreview()
-{
+fun HeaderPreview() {
     Header("Vienna")
 }

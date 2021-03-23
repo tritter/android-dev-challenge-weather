@@ -9,10 +9,11 @@
       or implied. See the License for the specific language governing permissions and limitations under
       the License.
       -->
-    <string name="app_name">AndroidDevChallenge</string>
+    <string name="app_name">WeatherCal</string>
 
     <string name="header_title">Weather forecast</string>
 
+    <!-- Content descriptors -->
     <string name="cd_rain_indicator">Rain indication of the forecast</string>
     <string name="cd_appointment">Appointment %1$s</string>
     <string name="cd_location">Current location of the weather in %1$s</string>

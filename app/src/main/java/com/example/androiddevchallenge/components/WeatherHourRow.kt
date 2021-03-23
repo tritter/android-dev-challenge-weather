@@ -1,15 +1,30 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.components
 
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -29,20 +44,27 @@ fun WeatherHourRow(weather: Weather) {
     Row(
         Modifier
             .fillMaxSize()
-            .height(IntrinsicSize.Min), verticalAlignment = Alignment.CenterVertically) {
-        Row(verticalAlignment = Alignment.CenterVertically,
+            .height(IntrinsicSize.Min),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .offset(0.dp, dimensionResource(R.dimen.margin_mini))
                 .weight(1f)
-                .wrapContentWidth(Alignment.Start)) {
-            Column(Modifier.width(dimensionResource(R.dimen.hour_weather_width)),
+                .wrapContentWidth(Alignment.Start)
+        ) {
+            Column(
+                Modifier.width(dimensionResource(R.dimen.hour_weather_width)),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 WeatherIcon(weather.type)
-                TemperatureLabel(weather.temperature, Locale.current,
-                temperatureStyle = MaterialTheme.typography.caption,
-                    degreeStyle = MaterialTheme.typography.overline)
+                TemperatureLabel(
+                    weather.temperature, Locale.current,
+                    temperatureStyle = MaterialTheme.typography.caption,
+                    degreeStyle = MaterialTheme.typography.overline
+                )
             }
             Divider(
                 color = colorResource(R.color.grid),
@@ -51,18 +73,19 @@ fun WeatherHourRow(weather: Weather) {
                     .width(dimensionResource(R.dimen.divider))
             )
         }
-        RainIndicator(weather.rain,
+        RainIndicator(
+            weather.rain,
             Modifier
                 .weight(1f)
                 .width(dimensionResource(R.dimen.rain_indicator_width))
                 .height(dimensionResource(R.dimen.rain_indicator_day_height))
-                .wrapContentWidth(Alignment.End))
+                .wrapContentWidth(Alignment.End)
+        )
     }
 }
 
 @Preview("Weather Hour Row Preview", widthDp = 360, heightDp = 60)
 @Composable
-fun WeatherHourRowPreview()
-{
+fun WeatherHourRowPreview() {
     WeatherHourRow(generateWeather())
 }

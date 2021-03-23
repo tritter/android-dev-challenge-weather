@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.models
 
 import android.text.format.DateUtils
@@ -7,14 +22,14 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import java.util.Date
 import java.util.Calendar
+import java.util.Date
 import java.util.Timer
 import kotlin.concurrent.timerTask
 
 const val second: Long = 1000
 
-class DayRowViewModel(day: Day, allAppointments: List<Appointment>): ViewModel() {
+class DayRowViewModel(day: Day, allAppointments: List<Appointment>) : ViewModel() {
     val date = day.date
     val weather = day.weather
     var hours: List<HourRowViewModel> = day.hours.map { HourRowViewModel(it) }
@@ -26,9 +41,9 @@ class DayRowViewModel(day: Day, allAppointments: List<Appointment>): ViewModel()
     init {
         viewModelScope.launch {
             val tomorrow = tomorrow()
-            val calendar = Calendar.getInstance()
+            val now = Date()
             appointments = allAppointments.filter {
-                date.before(it.start) && calendar.time.before(it.end) && tomorrow.after(it.end)
+                date.before(it.start) && now.before(it.end) && tomorrow.after(it.end)
             }.map {
                 AppointmentViewModel(it)
             }
@@ -36,7 +51,7 @@ class DayRowViewModel(day: Day, allAppointments: List<Appointment>): ViewModel()
         }
     }
 
-    private fun tomorrow() : Date {
+    private fun tomorrow(): Date {
         val calendar = Calendar.getInstance()
         calendar.add(1, Calendar.DATE)
         return calendar.time
@@ -44,18 +59,22 @@ class DayRowViewModel(day: Day, allAppointments: List<Appointment>): ViewModel()
 
     private fun startTimerIfNeeded() {
         val timer = Timer()
-        timer.scheduleAtFixedRate((timerTask {
-            isToday = DateUtils.isToday(date.time)
-            if (hours.count() > 1) {
-                val firstDisplayHour = hours[0].time
-                val calendar = Calendar.getInstance()
-                val currentHour = calendar[Calendar.HOUR_OF_DAY]
-                val currentMinute = calendar[Calendar.MINUTE]
-                val hourOffset = firstDisplayHour - currentHour
-                currentTimeOffset = hourOffset.toFloat() + (currentMinute.toFloat() / 60.0f)
-            }
-
-        }), second, second)
+        timer.scheduleAtFixedRate(
+            (
+                timerTask {
+                    isToday = DateUtils.isToday(date.time)
+                    if (hours.count() > 1) {
+                        val firstDisplayHour = hours[0].time
+                        val calendar = Calendar.getInstance()
+                        val currentHour = calendar[Calendar.HOUR_OF_DAY]
+                        val currentMinute = calendar[Calendar.MINUTE]
+                        val hourOffset = firstDisplayHour - currentHour
+                        currentTimeOffset = hourOffset.toFloat() + (currentMinute.toFloat() / 60.0f)
+                    }
+                }
+                ),
+            second, second
+        )
         this.timer = timer
     }
 

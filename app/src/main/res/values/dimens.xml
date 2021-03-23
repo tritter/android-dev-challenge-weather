@@ -10,7 +10,7 @@
     <dimen name="hour_weather_width">40dp</dimen>
     <dimen name="header_elevation">5dp</dimen>
     <dimen name="appointment_width">120dp</dimen>
-    <dimen name="appointment_min_height">50dp</dimen>
+    <dimen name="appointment_min_height">28dp</dimen>
     <dimen name="appointment_start_offset">60dp</dimen>
     <dimen name="appointment_icon_size">16dp</dimen>
     <dimen name="appointment_corner_size">6dp</dimen>

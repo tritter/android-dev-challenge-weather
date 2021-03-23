@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.components
 
 import androidx.compose.foundation.layout.Box
@@ -17,8 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.R
 
 @Composable
-fun TimeIndicator(timeOffset: Float)
-{
+fun TimeIndicator(timeOffset: Float) {
     val yOffset = dimensionResource(R.dimen.one_hour) * timeOffset
     val xOffSet = dimensionResource(R.dimen.hour_weather_width)
     val circleSize = dimensionResource(R.dimen.time_indicator_dot_size)
@@ -27,11 +41,14 @@ fun TimeIndicator(timeOffset: Float)
     Box(
         Modifier
             .offset(xOffSet, yOffset)
-            .semantics { contentDescription = cd }) {
-        Surface(shape = CircleShape, color = Color.Red,
+            .semantics { contentDescription = cd }
+    ) {
+        Surface(
+            shape = CircleShape, color = Color.Red,
             modifier = Modifier
                 .size(circleSize, circleSize)
-                .offset(circleOffset, circleOffset)) {
+                .offset(circleOffset, circleOffset)
+        ) {
         }
         Divider(
             color = Color.Red,
@@ -42,7 +59,6 @@ fun TimeIndicator(timeOffset: Float)
 
 @Preview("Time indicator preview", widthDp = 100, heightDp = 20)
 @Composable
-fun TimeIndicatorPreview()
-{
+fun TimeIndicatorPreview() {
     TimeIndicator(0.0f)
 }

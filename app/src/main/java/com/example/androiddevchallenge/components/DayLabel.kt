@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.components
 
 import androidx.compose.material.MaterialTheme
@@ -9,9 +24,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 @Composable
-fun DayLabel(date: Date, modifier: Modifier = Modifier)
-{
-    var formatter = SimpleDateFormat("EEEE dd MMMM")
+fun DayLabel(date: Date, modifier: Modifier = Modifier) {
+    val formatter = SimpleDateFormat("EEEE dd MMMM")
     Text(
         formatter.format(date).toUpperCase(),
         modifier = modifier,
@@ -21,7 +35,6 @@ fun DayLabel(date: Date, modifier: Modifier = Modifier)
 
 @Preview("Time label preview", widthDp = 350, heightDp = 50)
 @Composable
-fun DayLabelPreview()
-{
+fun DayLabelPreview() {
     DayLabel(Date())
 }
