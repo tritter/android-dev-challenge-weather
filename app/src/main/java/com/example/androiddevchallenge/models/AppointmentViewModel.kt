@@ -17,7 +17,7 @@ package com.example.androiddevchallenge.models
 
 import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 class AppointmentViewModel(appointment: Appointment) : ViewModel() {
     val text = appointment.text
