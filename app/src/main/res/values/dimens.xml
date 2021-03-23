@@ -19,7 +19,6 @@
     <dimen name="rain_indicator_label_width">50dp</dimen>
     <dimen name="rain_indicator_width">200dp</dimen>
     <dimen name="rain_indicator_day_height">80dp</dimen>
-    <dimen name="rain_indicator_hour_height">60dp</dimen>
     <dimen name="time_indicator_dot_size">12dp</dimen>
     <dimen name="time_indicator_line">1dp</dimen>
 </resources>

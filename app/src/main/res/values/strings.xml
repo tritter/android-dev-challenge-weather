@@ -11,8 +11,6 @@
       -->
     <string name="app_name">WeatherCal</string>
 
-    <string name="header_title">Weather forecast</string>
-
     <!-- Content descriptors -->
     <string name="cd_rain_indicator">Rain indication of the forecast</string>
     <string name="cd_appointment">Appointment %1$s</string>

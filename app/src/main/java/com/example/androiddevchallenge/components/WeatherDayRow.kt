@@ -25,7 +25,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.models.Weather
@@ -42,7 +41,7 @@ fun WeatherDayRow(weather: Weather) {
                 .wrapContentWidth(Alignment.Start)
         )
         TemperatureLabel(
-            weather.temperature, Locale.current,
+            weather.temperature,
             Modifier
                 .weight(1f)
                 .weight(1f)

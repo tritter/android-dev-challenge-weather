@@ -22,12 +22,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 @Composable
 fun DayLabel(date: Date, modifier: Modifier = Modifier) {
-    val formatter = SimpleDateFormat("EEEE dd MMMM")
+    val formatter = SimpleDateFormat("EEEE dd MMMM", Locale.getDefault())
     Text(
-        formatter.format(date).toUpperCase(),
+        formatter.format(date).toUpperCase(Locale.getDefault()),
         modifier = modifier,
         style = MaterialTheme.typography.caption
     )

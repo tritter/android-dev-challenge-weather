@@ -32,7 +32,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
@@ -61,7 +60,7 @@ fun WeatherHourRow(weather: Weather) {
             ) {
                 WeatherIcon(weather.type)
                 TemperatureLabel(
-                    weather.temperature, Locale.current,
+                    weather.temperature,
                     temperatureStyle = MaterialTheme.typography.caption,
                     degreeStyle = MaterialTheme.typography.overline
                 )

@@ -17,6 +17,7 @@ package com.example.androiddevchallenge.models
 
 import androidx.lifecycle.ViewModel
 import java.text.SimpleDateFormat
+import java.util.*
 
 class AppointmentViewModel(appointment: Appointment) : ViewModel() {
     val text = appointment.text
@@ -30,7 +31,7 @@ class AppointmentViewModel(appointment: Appointment) : ViewModel() {
     }
 
     fun time(): String {
-        var formatter = SimpleDateFormat("HH:mm")
+        var formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
         return formatter.format(startTime)
     }
 
