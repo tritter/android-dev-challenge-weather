@@ -17,4 +17,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="sun">#FFffeb3b</color>
+    <color name="cloud">#8000e5ff</color>
+    <color name="rain">#FF00e5ff</color>
+    <color name="rain_indicator">#3000e5ff</color>
+    <color name="storm">#FF6200EE</color>
+    <color name="grid">#50808080</color>
+
+    <color name="individual">#FFff8a80</color>
+    <color name="sport">#FF82b1ff</color>
+    <color name="work">#FFffd180</color>
 </resources>
